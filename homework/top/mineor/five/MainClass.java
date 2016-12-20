@@ -22,14 +22,16 @@ public class MainClass {
             threads[i] = new Thread(task,"thread"+i);
             threads[i].start();
         }
-        for(int i = 0; i < 5; i++){
-            try {
+
+        try {
+            for(int i = 0; i < 5; i++){
                 threads[i].join();
             }
-            catch (Exception e){
-                e.printStackTrace();
-            }
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
         int max = Integer.MIN_VALUE;
         for(int i = 0; i < 5; i++){
             int value = threadValue.get("thread"+i);
