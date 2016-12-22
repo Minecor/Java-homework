@@ -17,7 +17,10 @@ public class BroadcastThread implements Runnable{
             while(users.hasNext()){
                 String name = users.next();
                 Socket socket = client.get(name);
-                CommonUtils.sendMessageToClient(socket,message);
+                String messageName = message.split(":")[0];
+                if(name.equals(messageName))
+                    continue;
+                CommonUtils.sendMessage(socket,message);
                 System.out.println("已向"+name+"发送消息:"+message);
             }
         }
