@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
  * Created by mineor on 2016/12/20.
  */
 public class ComputerFrame extends JFrame {
+
+    /**
+     * 框架初始化
+     * @throws Exception
+     */
     public ComputerFrame() throws Exception{
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,6 +25,9 @@ public class ComputerFrame extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * 添加显示组件
+     */
     public void addcomponent(){
         JPanel up = new JPanel();
         JPanel down = new JPanel();

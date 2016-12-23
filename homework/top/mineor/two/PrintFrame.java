@@ -9,9 +9,15 @@ import java.awt.event.MouseEvent;
  * Created by mineor on 2016/12/20.
  */
 public class PrintFrame extends JFrame{
-    static Point startPoint = new Point();
-    static Point endPoint = new Point();
-    static JPanel panel = new JPanel();
+
+    private static Point startPoint = new Point();
+    private static Point endPoint = new Point();
+    private static JPanel panel = new JPanel();
+
+    /**
+     * 框架的初始化
+     * @throws Exception
+     */
     public PrintFrame() throws Exception {
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,8 +31,16 @@ public class PrintFrame extends JFrame{
         this.setVisible(true);
     }
 
+    /**
+     * 添加鼠标监听事件
+     * @param parentComponent
+     */
     public void addMyMouseListener(JComponent parentComponent){
         parentComponent.addMouseListener(new MouseAdapter() {
+            /**
+             * 鼠标按下事件
+             * @param e
+             */
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
@@ -34,6 +48,10 @@ public class PrintFrame extends JFrame{
                 startPoint.setY(e.getY());
             }
 
+            /**
+             * 鼠标松开事件
+             * @param e
+             */
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
@@ -45,17 +63,23 @@ public class PrintFrame extends JFrame{
         });
     }
 
+    /**
+     * 画圆函数
+     * @param g
+     * @param startPoint
+     * @param endPoint
+     */
     public void printCrcle(Graphics g,Point startPoint,Point endPoint){
         g.setColor(Color.blue);
 
         int width = endPoint.getX()-startPoint.getX();
         int height = endPoint.getY()-startPoint.getY();
-        System.out.println(width + " ||" + height);
-        int size = (int)Math.sqrt(Math.abs(width)/2 * Math.abs(width)/2 + Math.abs(height)/2 * Math.abs(height)/2);
-        System.out.println("size = " +  size);
-        int xCoordinate = (endPoint.getX()+startPoint.getX())/2;
-        int yCoordinate = (endPoint.getY()+startPoint.getY())/2;
-        System.out.println(xCoordinate + "\\" + yCoordinate);
+        //System.out.println(width + " ||" + height);
+        int size = (int)Math.sqrt(Math.abs(width)/2 * Math.abs(width)/2 + Math.abs(height)/2 * Math.abs(height)/2);//计算半径
+        //System.out.println("size = " +  size);
+        int xCoordinate = (endPoint.getX()+startPoint.getX())/2; //计算圆心位置
+        int yCoordinate = (endPoint.getY()+startPoint.getY())/2; //计算圆心位置
+        //System.out.println(xCoordinate + "\\" + yCoordinate);
         g.fillOval(xCoordinate-size,yCoordinate-size,size*2,size*2);
     }
 

@@ -5,6 +5,7 @@ package top.mineor.two;
  */
 public class MainClass {
     public static void main(String[] args){
+        //事件分发线程
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

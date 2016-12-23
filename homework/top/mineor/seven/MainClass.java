@@ -19,7 +19,7 @@ public class MainClass{
         MyTask task = new MyTask(0,data.length,data);
         Future<Integer> result = forkJoinPool.submit(task);
         try {
-            System.out.println("此次一万个随机数最大值为:"+result.get());
+            System.out.println("此次一千万个随机数最大值为:"+result.get());
         }
         catch (Exception e){
             e.printStackTrace();

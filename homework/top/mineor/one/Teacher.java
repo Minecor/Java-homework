@@ -8,7 +8,7 @@ import java.util.Random;
 public class Teacher {
     static Question question = new Question();
     public static Question getQuestion(){
-        Random random = new Random();
+        Random random = new Random();//设置随机数0-999
         question.setNum1(random.nextInt(1000));
         question.setNum2(random.nextInt(1000));
         return question;
