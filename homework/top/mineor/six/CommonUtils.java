@@ -17,8 +17,9 @@ public class CommonUtils {
             BufferedReader bufferedReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
             // 输入读入一字符串
             String result = bufferedReader.readLine();
-            System.out.println(result);
+            //System.out.println(result);
            // bufferedReader.close();
+            return result;
         }
         catch (Exception e){
             e.printStackTrace();

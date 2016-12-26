@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * Created by mineor on 2016/12/21.
+ * 命令行客户端
  */
 public class ChatClient {
 
